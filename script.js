@@ -692,35 +692,92 @@
 
 
 
-let api = "117d2b95022c8629f6a46dc20a7dc84c";
-let getweatherbtn = document.getElementById("getweatherbtn");
-let cityInput = document.getElementById("cityInput");
-let weatherResult = document.getElementById("weatherResult");
+// let api = "117d2b95022c8629f6a46dc20a7dc84c";
+// let getweatherbtn = document.getElementById("getweatherbtn");
+// let cityInput = document.getElementById("cityInput");
+// let weatherResult = document.getElementById("weatherResult");
 
-getweatherbtn.addEventListener('click', () => {
-    let city = cityInput.value;
-    if (!city) {
-        alert(`Please Enter a city`);
-        return;
+// getweatherbtn.addEventListener('click' , () => {
+//     let city = cityInput.value;
+//     if(!city) {
+//         alert(`Please Enter a city`);
+//         return;
+//     }
+//     let url = `https://api.openweathermap.org/data/2.5/weather?=${city}&appid=${'117d2b95022c8629f6a46dc20a7dc84c'}`
+//     fetch(url)
+//     .then(response =>{
+//         if(!response) {
+//             throw new Error("City Not Found!!")
+//         }
+//         return response.json();
+//     })
+//     .then(data => {
+//         weatherResult.innerHTML=`
+//         <h2>${data.name}</h2>
+//         <p>Temperature : ${data.main.temp}°C</p>
+//         <p>Weather : ${data.weather[0].description}</p>
+//         <p>Humidity : ${data.main.humidity}</p>
+//         <p>Wind Speed : ${data.wind.speed}</p>
+//         `
+//     })
+//     .catch(error => {
+//         weatherResult.innerHTML`<p>${error}</p>`
+//     })
+// })
+
+
+
+
+
+let userScore = 0;
+let compScore = 0;
+
+
+function play(userchoice) {
+    let choices = ["Rock", "Paper", "Scissor"];
+    const computerchoice = choices[Math.floor(Math.random() * 3)];
+
+    let result = "";
+
+    if (
+        (userchoice === computerchoice)
+    ) { result = "It's draw" }
+    else if (
+        (userchoice === "Rock" && computerchoice === "Scissor") ||
+        (userchoice === "Paper" && computerchoice === "Rock") ||
+        (userchoice === "Scissor" && computerchoice === "Paper")
+
+    ) {
+        result = "you win the match"
+        userScore++;
+    } else {
+        result = "your opponent wins"
+        compScore++
     }
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${'117d2b95022c8629f6a46dc20a7dc84c'}`
-    fetch(url)
-        .then(response => {
-            if (!response) {
-                throw new Error("City Not Found!!")
-            }
-            return response.json();
-        })
-        .then(data => {
-            weatherResult.innerHTML = `
-        <h2>${data.name}</h2>
-        <p>Temperature : ${data.main.temp}°C</p>
-        <p>Weather : ${data.weather[0].description}</p>
-        <p>Humidity : ${data.main.humidity}</p>
-        <p>Wind Speed : ${data.wind.speed}</p>
-        `
-        })
-        .catch(error => {
-            weatherResult.innerHTML`<p>${error.message}</p>`
-        })
-});
+    document.getElementById("userScore").textContent = userScore;
+    document.getElementById("compScore").textContent = compScore;
+    document.getElementById("result").textContent = result;
+    document.getElementById("display").innerHTML = `You choose <strong>${icon(userchoice)} </strong> &nbsp;&nbsp:
+    computer choose : <strong> ${icon(computerchoice)}</strong>`;
+
+};
+
+function icon(choices) {
+    if (choices === "Rock") return "✊";
+    if (choices === "Paper") return "✋";
+    if (choices === "Scissor") return "✌️";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">k
 </head>
+
 
 <body>
 
@@ -59,10 +59,32 @@
     <p id="result"></p> -->
 
 
-    <h1>Weather App</h1>
+    <!-- <h1>Weather App</h1>
     <input type="text" id="cityInput" placeholder="Enter City">
     <button id="getweatherbtn">Get Weather</button>
-    <div id="weatherResult"></div>
+    <div id="weatherResult"></div> -->
+    <div class="game-box">
+        <h1>Rock Paper Scissors</h1>
+
+        <div class="choices">
+            <div class="choice" onclick="play('Rock')">✊ </div>
+            <div class="choice" onclick="play('Paper')">✋  </div>
+            <div class="choice" onclick="play('Scissor')">✌️ </div>
+        </div>
+        <div id="result"></div>
+        <div id="display"></div>
+
+        <div class="score-box">
+            <p><strong>Your Score:</strong> <span id="userScore">0</span></p>
+            <p><strong>Computer Score:</strong> <span id="compScore">0</span></p>
+        </div>
+    </div>
+
+
+
+
+
+
 
 
         <!-- <script type="module" src="/project/main.js"></script> -->
