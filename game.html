@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <style>
+        .game-container {
+            width: 380px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+
+        .tile {
+            width: 90px;
+            height: 90px;
+            background: #eeeeee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 0 5px #aaa;
+            transition: 0.3s;
+        }
+
+
+        .tile:hover {
+            background: #d8d8d8;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="text-align: center;">Memory Game</h2>
+    <div class="score-box" style="text-align: center;">
+        <p><strong>Moves :</strong> <span id="userScore">0</span></p>
+        <p><strong>Match :</strong> <span id="compScore">0</span></p>
+    </div>
+
+    <div class="game-container"></div>
+
+    <script>
+        let tilesarray = ["🍎","🍎","🥭","🥭","🍇","🍇","🍌","🍌","🍑","🍑"]
+        tilesarray.sort(()=>Math.random() 0.5)
+    </script>
+</body>
+
+</html>
